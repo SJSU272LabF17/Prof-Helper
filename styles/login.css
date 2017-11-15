@@ -1,0 +1,14 @@
+.loginform{
+	width: max-content;
+    margin-left: 60%;
+    margin-top: 10%;
+    color: white;
+}
+
+#email, #password{
+	margin-right: 30px;
+}
+#mail, #pwd{
+	margin-top: 20px;
+	width: 266px;
+}

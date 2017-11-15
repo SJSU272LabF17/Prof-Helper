@@ -1,0 +1,10 @@
+.signupform{
+	width: max-content;
+    margin-left: 60%;
+    margin-top: 5%;
+    color: white;
+}
+#firstname, #lastname, #mailid, #pswd{
+	margin: auto;
+	width: 266px;
+}
