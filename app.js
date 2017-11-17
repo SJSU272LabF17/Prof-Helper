@@ -34,6 +34,22 @@ console.log(req.body);
 
 });
 
+app.get('/gcloud',function(req,res){
+    var projectId ='studied-theater-186201'; // E.g. 'grape-spaceship-123'
+
+    var gcloud = require('gcloud');
+    var vision=gcloud.vision({
+        projectId: projectId,
+        keyFilename: './My Project 34365-5eb4bb6b100a.json'
+    });
+
+    vision.detectText('./2.jpg',function(err,text){
+    	console.log(text);
+    });
+})
+
+
+
 
 app.listen(3000, function(req, res){
 	console.log("server is running on port 3000");

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "studied-theater-186201",
+  "private_key_id": "5eb4bb6b100a1aaad6a4590234545af7a9487681",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCNVmPeQNepe7BN\niK3rw40uzx++QFGSpSgmrrhKbbSg45X6Rk85UTV+dLwyNaZ64th5fnDea5DclYcs\nRE6NFjQd1VqGQJWRShi4EJuGP3GOJ23wXJpYesTuAG1yk+8vmJcsi1a8aASg3cbg\nlCZmOVo8Tf9jrHmxQf0zJuh+wGasAGWkuFPi7heXkmeN3grTvanP+QDEsMGUnDql\nvioPNx1gIptmOREmQZfztUP1IL7CBqNw13Ss1nq09Z7B4DpwSZLdiZfGcz1EwFsP\ny9B6pZe4FcxCah1ZYOPg2FAVvWnpYfw3KFR7LNH/5nANzGNL7UV+Oi5sRKGH2FUt\nmqGq7BpLAgMBAAECggEAK2IjqIKF0Devv7TfEdnGGeKo7ziF8Xnxj6Ic3ne7NJF3\nJUn0onbbcTP62nyeW+UKpoxZr+QbpKHfSoazB9qTZ77oGQJ1BpJUcRdj7brGq+hN\ndjSuic8xaI7ICZ4AEr+HU7x3hMB2/zvkAmZnPQSIvq8AYAN+nRrQ0iU0w0dinJPT\n1u9+uURfMkyPTQq4OaWC1XvWEPhGE3H62ZUvPWAWMg38yvuedKNxukmaKlP/3Njk\nj4H9GoQcyNHU5PMmGSLpv6ozEvH0Zx3tUkY1HSnxMf7FVNiKdKSj2yJwhCGCIXcv\ncG6ubYQ6m2GwRX8RL92JsKsQoPsDbAzt8yE/AUISOQKBgQDAX8HgW3DsGUovFTdD\nIBnMJg6x8Y/JqAlSq9fB+syKUYQAXfBrqiUWRRM7bPL9F9MR/qvrXo2zjuUlapqQ\nfyBhszrFp5xENv+QkcXaOUQK7OFm+FRxvsatpCcDxvaknYLtU1tImymuaHuP/W2+\nYUa95TVIgQrw/3e6hxy1R9tSYwKBgQC8FWH9PswsLaXRb1rfi5udB3LBCrlKSh77\ngNNdU1xVUnV2/JifeZSGpg7Qjt7Vpxy2siRz9uY7N0MLO6tOBPmWBe6AgfLOaI3p\n6o/XgUVEvZ0moC7joJHRtJ+wnlaZ/ZWHf2/Uxp9Fa/r2RKsxwTMRL+6XnbDwSDwH\nqnDW59io+QKBgQC1XRHRTSQm0qjnvp69ABSSLQcJp+2hdnRjpnLhBGu1s6g5GFdD\nicMxPaomCk8DYWSywGCgpCH/uKY8IkbaF6AVu/2avqxKe3dxep0HYZnOmwjeJRyn\np+5zYiEOJJP/GiiHSmDzEKW5MfPcCldedyNUgDU9x7ri/laIWj0sgzQ4dQKBgHpW\nXjpfEmbZ+jVT/QPSxxFIuvedhhAwTh7BGLpncnN9AzK18oAokNdUQ+acR40o+aBM\nFzHmsrJpq44u7an9ymouyYeE/u4LS+OO0qkWSHwB6aoqHtWop7CDkCtNkn7vVsef\nuJnp58c8CS0OVVwzkofnaYXs6B4inglOb78ZZu/hAoGAWNoy7EakwUN1EZFjKCL0\nQDbhKJZMeC9jAs8I5ZbHkOkzpcDb82I4LQLrJm1ncsZoPGLXdUK+wCbp3BOTCr2P\n2VYXL12djaDOVxMqaw9zoh8iVA2IdKWNmAerS5U3IEj6C3j0JNba/hrNB2Zjp6AQ\nf+VszKaq3BooZ5H7GvGenkI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "ranjan@studied-theater-186201.iam.gserviceaccount.com",
+  "client_id": "102646053145369528131",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ranjan%40studied-theater-186201.iam.gserviceaccount.com"
+}
