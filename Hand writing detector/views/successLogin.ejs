@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Files- Dropbox</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+.updiv{
+  border: 1px solid black;
+  width: 270px;
+  height: 150px;
+  margin-top: 20px;
+}
+  </style>
+</head>
+<body>
+<div>
+  <!-- <li class="nav-item"> -->
+    <a class="nav-link" href="/signout" style="float: right; margin-right: 50px; font-size: 15px">Sign out</a>
+</div><br>
+<center>
+  <h3>Upload new image</h3>
+<div class="updiv">
+<form style="margin: 30px 0 0 40px"class="fileupload" action="upload" method="post" enctype="multipart/form-data" >
+  <input  type="file" name="upfile" > <br>
+    <input class = "up" type="submit" value="Upload"  />
+  </form>
+</div><br>
+  <div style="width: 290px">
+    <h3>Uploaded images</h3>
+  <ol>
+    <% if(files) {
+      files.forEach(function(value){
+    %>
+        <li style="margin-left: 80px; margin-right: 90px"><%= value.fname %></li>
+    <%
+      })
+    }%>
+  </ol>
+</div>
+</body>
+</html>
