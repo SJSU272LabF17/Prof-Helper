@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="functions.js"></script>
+  <header><h2 align="center">Calculator</h2></header>
+
+
+    <div className="profile-icon-editor" style={style}>
+
+
+      <form action="/index" method="POST" enctype="multipart/form-data">
+        <input className="hidden" type="file" id="profile-icon-editor-input" id="form"/>
+        <label htmlFor="profile-icon-editor-input" className="glyphicon glyphicon-pencil"></label>
+      </form>
+      <button type="button" onclick="submitimage()">Check</button>
+
+<!--
+      <img src={"http://localhost:3001/Userfiles/"+this.state.username+"/"+this.state.username+".jpg?_=" + Date.now()}  alt="No profile picture Available" />
+-->
+      <text class="form-control" name="result" id="result" placeholder="Result" />
+    </div>
+
+  </body>
+</html>
