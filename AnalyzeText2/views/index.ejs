@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Handwriting Sample</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+<h1>Read handwritten image image:</h1>
+Image to read:
+<input type="file" id="inputImage" />
+<br>
+<br>
+<div id="wrapper" style="width:1020px; display:table;">
+    <div id="jsonOutput" style="width:600px; display:table-cell;">
+        Response:
+        <br>
+        <br>
+        <textarea id="responseTextArea" class="UIInput" style="width:580px; height:400px;"></textarea>
+    </div>
+
+    <div id="imageDiv" style="width:420px; display:table-cell;">
+        Source image:
+        <br><br>
+        <img id="sourceImage" width="400" />
+
+        <img id="myImg" src="#" alt="your image" />
+    </div>
+</div>
+</body>
+</html>
+
+
+<script>
+    document.querySelector('#inputImage').addEventListener('change', function() {
+
+        var reader = new FileReader();
+        reader.onload = function() {
+
+            var arrayBuffer = this.result,
+                array = new Uint8Array(arrayBuffer);
+
+// Replace the subscriptionKey string value with your valid subscription key.
+            var subscriptionKey = "e80c81219c3247cb996a29065fd84b2f";
+            var uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/RecognizeText";
+
+            var params = {
+                "handwriting": "true",
+            };
+
+
+            // var sourceImageUrl = document.getElementById("inputImage").value;
+            // document.querySelector("#sourceImage").src = sourceImageUrl;
+
+
+
+
+            $.ajax({
+                url: uriBase + "?" + $.param(params),
+
+                beforeSend: function(jqXHR) {
+                    jqXHR.setRequestHeader("Content-Type", "application/octet-stream");
+                    jqXHR.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+                },
+
+                type: "POST",
+                processData: false,
+                data: arrayBuffer
+            })
+
+                .done(function(data, textStatus, jqXHR) {
+// Show progress.
+                    $("#responseTextArea").val("Handwritten text submitted. Waiting 10 seconds to retrieve the recognized text.");
+                    setTimeout(function() {
+// The "Operation-Location" in the response contains the URI to retrieve the recognized text.
+                        var operationLocation = jqXHR.getResponseHeader("Operation-Location");
+
+                        $.ajax({
+                            url: operationLocation,
+                            beforeSend: function(jqXHR) {
+                                jqXHR.setRequestHeader("Content-Type", "application/json");
+                                jqXHR.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+                            },
+                            type: "GET",
+                        })
+
+                            .done(function(data) {
+                                myObj2 = data; //JSON.parse(data);
+                                var x = "";
+                                for (k in myObj2.recognitionResult.lines) {
+                                    x += myObj2.recognitionResult.lines[k].text;
+                                }
+                                // xobject = JSON.parse(x);
+                                $("#responseTextArea").val(JSON.stringify(x, null, 2));
+                                //     $("#responseTextArea").val(x2);
+                            })
+
+
+                            .fail(function(jqXHR, textStatus, errorThrown) {
+// Display error message.
+                                var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+                                errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+                                    jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
+                                alert(errorString);
+                            });
+                    }, 10000);
+                })
+
+                .fail(function(jqXHR, textStatus, errorThrown) {
+// Put the JSON description into the text area.
+                    $("#responseTextArea").val(JSON.stringify(jqXHR, null, 2));
+
+// Display error message.
+                    var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+                    errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+                        jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
+                    alert(errorString);
+                })
+        }
+        reader.readAsArrayBuffer(this.files[0]);
+
+    }, false);
+
+    $(function () {
+        $(":file").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = imageIsLoaded;
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    });
+
+    function imageIsLoaded(e) {
+        $('#myImg').attr('src', e.target.result);
+    };
+</script>
+
+
