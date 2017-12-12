@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Handwriting Sample</title>
+    <title>Prof Helper</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
 </head>
 <body>
-<h1>Read handwritten image image:</h1>
+<h1>Read handwritten image:</h1>
 Image to read:
 <input type="file" id="inputImage" />
 <br>
@@ -16,7 +17,9 @@ Image to read:
         Response:
         <br>
         <br>
-        <textarea id="responseTextArea" class="UIInput" style="width:580px; height:400px;"></textarea>
+        <div id="responseTextArea" class="UIInput" style="width:580px; height:400px; border:1px solid black">
+
+        </div>
     </div>
 
     <div id="imageDiv" style="width:420px; display:table-cell;">
@@ -24,9 +27,53 @@ Image to read:
         <br><br>
         <img id="sourceImage" width="400" />
 
-        <img id="myImg" src="#" alt="your image" />
+        <img id="myImg" src="#" alt="your image" width="400" height="500"/>
     </div>
 </div>
+<form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="shripal555@gmail.com"
+      action="https://script.google.com/macros/s/AKfycbxkg2gIvMB94KQ2B0we1u17U_91Cxq8DKSH4uB8n77giN1Wpjo/exec">
+    <!-- change the form action to your script url -->
+
+    <fieldset class="pure-group">
+        <label for="name">Name: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+        <input id="name" name="name" placeholder="Student Name" />
+    </fieldset>
+
+<!--
+    <fieldset class="pure-group">
+        <label for="originaltext">Converted Text: </label>
+        <input id="responseText" name="originaltext" placeholder="Converted Text" />
+    </fieldset>
+-->
+
+    <fieldset class="pure-group">
+        <label for="comments">Comments: &nbsp &nbsp &nbsp </label>
+        <textarea id="comments" name="comments" rows="5"
+                  placeholder="Comments"></textarea>
+    </fieldset>
+
+    <fieldset class="pure-group">
+        <label for="email">Email Address:</label>
+        <input id="email" name="email" type="email" value=""
+               required placeholder="Email"/>
+        <span id="email-invalid" style="display:none">
+        Must be a valid email address</span>
+    </fieldset>
+
+    <fieldset class="pure-group">
+        <label for="marks">Total Marks: </label>
+        <input id="marks" name="marks" placeholder="Marks" type="number" min="0"/>
+        <label>20</label>
+    </fieldset>
+
+    <button class="button-success pure-button button-xlarge">
+        <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+
+</form>
+<a href="https://docs.google.com/spreadsheets/d/1oVmXSGbFi1JBn1sUIoeAJ-JQU3F98uMdCnjmESx1iFY/edit#gid=0" target="_blank">Database</a>
+<script data-cfasync="false" type="text/javascript"
+        src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+
 </body>
 </html>
 
@@ -70,7 +117,7 @@ Image to read:
 
                 .done(function(data, textStatus, jqXHR) {
 // Show progress.
-                    $("#responseTextArea").val("Handwritten text submitted. Waiting 10 seconds to retrieve the recognized text.");
+                    $("#responseTextArea").html("Handwritten text submitted. Waiting 10 seconds to retrieve the recognized text.");
                     setTimeout(function() {
 // The "Operation-Location" in the response contains the URI to retrieve the recognized text.
                         var operationLocation = jqXHR.getResponseHeader("Operation-Location");
@@ -88,10 +135,10 @@ Image to read:
                                 myObj2 = data; //JSON.parse(data);
                                 var x = "";
                                 for (k in myObj2.recognitionResult.lines) {
-                                    x += myObj2.recognitionResult.lines[k].text;
+                                    x += myObj2.recognitionResult.lines[k].text + "<br>";
                                 }
                                 // xobject = JSON.parse(x);
-                                $("#responseTextArea").val(JSON.stringify(x, null, 2));
+                                $("#responseTextArea").html(JSON.stringify(x, null, 2));
                                 //     $("#responseTextArea").val(x2);
                             })
 
