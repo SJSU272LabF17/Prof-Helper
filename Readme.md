@@ -13,5 +13,6 @@ The gs script(script.gs) for directly storing the data into spreadsheet is writt
 There are around 50 images in Testing Image folder for reference, as to what are the different types of images we have tested our web application.
 
 ## Screenshots
-
+![capture](https://user-images.githubusercontent.com/31905103/33978689-d2c65f60-e055-11e7-88a0-d18f414dde3a.PNG)
+![read2](https://user-images.githubusercontent.com/31905103/33978696-d7dc7b24-e055-11e7-910c-0771660f29ad.PNG)
 
