@@ -20,6 +20,8 @@ The gs script(script.gs) for directly storing the data into spreadsheet is writt
 
 We have 50 different types of images in Testing Image folder for reference, as to what are the different images our web application can interpret.
 
+<a href="https://github.com/SJSU272LabF17/Prof-Helper/blob/master/272%20Report.pdf">Click here to view Project Report</a>
+
 ## Screenshots
 
 1. Homepage
